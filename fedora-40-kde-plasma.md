@@ -28,7 +28,7 @@ sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flat
 
 ### Git
 
-_Before oh my zsh_
+_Before 'Oh my zsh'._
 
 ```shell
 sudo dnf -y install git
@@ -44,7 +44,7 @@ Verify config (and update if needed):
 git config --global --edit
 ```
 
-### zsh & Oh my zsh
+### ZSH & Oh my zsh
 
 ```shell
 sudo dnf -y install zsh
