@@ -14,7 +14,7 @@ sudo dnf -y install dnf-plugins-core
 ```
 
 ```shell
-sudo dnf -y install curl wget jq
+sudo dnf -y install curl wget bat jq
 ```
 
 ```shell
@@ -24,6 +24,25 @@ sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-
 
 ```shell
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+
+### SSH
+
+_Note: I already had a key, but instructions for generating one can be found [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)._
+
+```shell
+sudo dnf -y install ksshaskpass
+echo "export SSH_ASKPASS=\"\$(which ksshaskpass)\"" >> .bashrc
+echo "export GIT_ASKPASS=\"\${SSH_ASKPASS}\"" >> .bashrc
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519 </dev/null
+ssh-add -l
+```
+
+Add to `~/.ssh/config`:
+```
+Host * 
+    AddKeysToAgent yes
 ```
 
 ### Git
@@ -54,6 +73,11 @@ cp ~/.zshrc ~/.zshrc.bak.1
 ```
 
 ```shell
+echo "export SSH_ASKPASS=\"\$(which ksshaskpass)\"" >> .zshrc
+echo "export GIT_ASKPASS=\"\${SSH_ASKPASS}\"" >> .zshrc
+```
+
+```shell
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
@@ -62,8 +86,6 @@ sudo dnf -y install powerline-fonts
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-you-should-use
-
-sudo dnf -y install bat
 git clone https://github.com/fdellwing/zsh-bat.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-bat
 
 cp ~/.zshrc ~/.zshrc.bak.2
@@ -78,11 +100,16 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-you-should-use
-    zsh-bat
+    #zsh-bat
+    ssh-agent
 )
+
+# ! Above `source $ZSH/oh-my-zsh.sh`
+zstyle :omz:plugins:ssh-agent helper ksshaskpass
+zstyle :omz:plugins:ssh-agent identities id_ed25519
 ```
 
-## Docker
+### Docker
 
 ```shell
 sudo dnf -y remove docker \
@@ -146,18 +173,6 @@ skd install maven
 
 ```shell
 sudo dnf -y install go python3
-```
-
-### SSH
-
-_Note: after installation of ZSH._
-
-_Note: I already had a key, but instructions for generating one can be found [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)._
-
-```shell
-echo "export GIT_ASKPASS=\"\${SSH_ASKPASS}\"" >> .zshrc
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
 ```
 
 ## Music, multimedia, etc.
