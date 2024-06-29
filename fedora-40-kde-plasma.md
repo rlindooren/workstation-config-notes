@@ -109,6 +109,11 @@ zstyle :omz:plugins:ssh-agent helper ksshaskpass
 zstyle :omz:plugins:ssh-agent identities id_ed25519
 ```
 
+Reload:
+```shell
+source ~/.zshrc
+```
+
 ### Docker
 
 ```shell
