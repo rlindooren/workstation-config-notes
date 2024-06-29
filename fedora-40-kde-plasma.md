@@ -106,7 +106,6 @@ cp ~/.zshrc ~/.zshrc.bak.2
 
 I manually updated these settings in `.zshrc`:
 
-
 ```shell
 nano ~/.zshrc
 ```
@@ -173,6 +172,16 @@ I used the toolbox: https://www.jetbrains.com/toolbox-app/.
 
 ```shell
 sudo dnf -y install jetbrains-mono-fonts
+```
+
+Add toolbox scripts to `$PATH`:
+
+```shell
+nano 
+```
+
+```shell
+echo "export PATH=\$PATH:\$HOME/.local/share/JetBrains/Toolbox/scripts" >> ~/.zshrc
 ```
 
 ### VS Code
