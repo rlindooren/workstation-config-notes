@@ -14,7 +14,25 @@ sudo dnf -y install dnf-plugins-core
 ```
 
 ```shell
-sudo dnf -y install curl wget git jq
+sudo dnf -y install curl wget jq
+```
+
+### Git
+
+_Before oh my zsh_
+
+```shell
+sudo dnf -y install git
+```
+
+Enable automatic upsteam:
+```shell
+git config --global push.autoSetupRemote true
+```
+
+Verify config (and update if needed):
+```shell
+git config --global --edit
 ```
 
 ```shell
@@ -51,9 +69,8 @@ git clone https://github.com/fdellwing/zsh-bat.git ${ZSH_CUSTOM:-~/.oh-my-zsh/cu
 cp ~/.zshrc ~/.zshrc.bak.2
 ```
 
-_I manually updated these settings in `.zshrc`:_
-
-```
+I manually updated these settings in `.zshrc`:
+```config
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 plugins=(
@@ -101,7 +118,7 @@ sudo dnf -y install sublime-text
 
 ### IntelliJ IDEA
 
-_I used the toolbox: https://www.jetbrains.com/toolbox-app/_
+I used the toolbox: https://www.jetbrains.com/toolbox-app/.
 
 ```shell
 sudo dnf -y install jetbrains-mono-fonts
