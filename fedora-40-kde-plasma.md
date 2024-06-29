@@ -10,6 +10,9 @@ hostnamectl set-hostname hpz440
 
 ```shell
 sudo dnf -y update
+```
+
+```shell
 sudo dnf -y install dnf-plugins-core
 ```
 
@@ -40,6 +43,11 @@ ssh-add -l
 ```
 
 Add to `~/.ssh/config`:
+
+```shell
+nano ~/.ssh/config
+```
+
 ```
 Host * 
     AddKeysToAgent yes
@@ -92,6 +100,12 @@ cp ~/.zshrc ~/.zshrc.bak.2
 ```
 
 I manually updated these settings in `.zshrc`:
+
+
+```shell
+nano ~/.zshrc
+```
+
 ```config
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
