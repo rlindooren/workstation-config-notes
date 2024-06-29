@@ -66,7 +66,12 @@ Enable automatic upsteam:
 git config --global push.autoSetupRemote true
 ```
 
-Verify config (and update if needed):
+Enable symlinks:
+```shell
+git config --global core.symlinks true
+```
+
+Verify config (and update if needed -- e.g. `user`):
 ```shell
 git config --global --edit
 ```
@@ -106,7 +111,7 @@ I manually updated these settings in `.zshrc`:
 nano ~/.zshrc
 ```
 
-```config
+```
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 plugins=(
