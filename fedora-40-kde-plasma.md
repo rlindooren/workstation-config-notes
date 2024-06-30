@@ -5,19 +5,16 @@ A reminder for myself, about the **manual** installation steps I ran.
 ## Core
 
 ```shell
-hostnamectl set-hostname hpz440
+sudo hostnamectl set-hostname hpz440
 ```
 
 ```shell
 sudo dnf -y update
+reboot
 ```
 
 ```shell
 sudo dnf -y install dnf-plugins-core
-```
-
-```shell
-sudo dnf -y install curl wget bat jq
 ```
 
 ```shell
@@ -26,7 +23,11 @@ sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-
 ```
 
 ```shell
-sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo dnf -y install curl wget bat jq
+```
+
+```shell
+#sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
 ### SSH
@@ -61,6 +62,17 @@ _Before 'Oh my zsh'._
 sudo dnf -y install git
 ```
 
+Verify config (and update if needed -- e.g. `user`):
+```shell
+git config --global --edit
+```
+
+```
+git config --global user.name "Ricardo Lindooren" 
+git config --global user.email "ricardo@..." 
+git config --global user.username "rlindooren"
+```
+
 Enable automatic upsteam:
 ```shell
 git config --global push.autoSetupRemote true
@@ -71,10 +83,7 @@ Enable symlinks:
 git config --global core.symlinks true
 ```
 
-Verify config (and update if needed -- e.g. `user`):
-```shell
-git config --global --edit
-```
+https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
 
 ### ZSH & Oh my zsh
 
@@ -82,26 +91,23 @@ git config --global --edit
 sudo dnf -y install zsh
 chsh -s $(which zsh)
 zsh
-cp ~/.zshrc ~/.zshrc.bak.1
-```
-
-```shell
-echo "export SSH_ASKPASS=\"\$(which ksshaskpass)\"" >> .zshrc
-echo "export GIT_ASKPASS=\"\${SSH_ASKPASS}\"" >> .zshrc
 ```
 
 ```shell
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+git clone https://github.com/bhilburn/powerlevel9k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel9k
 sudo dnf -y install powerline-fonts
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-you-should-use
-git clone https://github.com/fdellwing/zsh-bat.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-bat
+#git clone https://github.com/fdellwing/zsh-bat.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-bat
 
-cp ~/.zshrc ~/.zshrc.bak.2
+echo "export SSH_ASKPASS=\"\$(which ksshaskpass)\"" >> .zshrc
+echo "export GIT_ASKPASS=\"\${SSH_ASKPASS}\"" >> .zshrc
+
+cp ~/.zshrc ~/.zshrc.bak.1
 ```
 
 I manually updated these settings in `.zshrc`:
@@ -166,6 +172,16 @@ sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x
 sudo dnf -y install sublime-text
 ```
 
+### Java etc. (via SDKman)
+
+```shell
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+sdk install java
+sdk install kotlin
+sdk install maven
+```
+
 ### IntelliJ IDEA
 
 I used the toolbox: https://www.jetbrains.com/toolbox-app/.
@@ -175,10 +191,6 @@ sudo dnf -y install jetbrains-mono-fonts
 ```
 
 Add toolbox scripts to `$PATH`:
-
-```shell
-nano 
-```
 
 ```shell
 echo "export PATH=\$PATH:\$HOME/.local/share/JetBrains/Toolbox/scripts" >> ~/.zshrc
@@ -192,16 +204,6 @@ echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com
 sudo dnf -y install code
 ```
 
-### Java etc. (via SDKman)
-
-```shell
-curl -s "https://get.sdkman.io" | bash
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-sdk install java
-sdk install kotlin
-skd install maven
-```
-
 ### GoLang & Python
 
 ```shell
@@ -211,5 +213,5 @@ sudo dnf -y install go python3
 ## Music, multimedia, etc.
 
 ```shell
-sudo dnf install vlc
+sudo dnf -y install vlc
 ```
