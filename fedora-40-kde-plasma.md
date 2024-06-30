@@ -187,6 +187,15 @@ sdk install maven
 I used the toolbox: https://www.jetbrains.com/toolbox-app/.
 
 ```shell
+sudo mkdir -p /opt/jetbrains/toolbox
+sudo chown ${USER} /opt/jetbrains/toolbox
+
+# Downloaded version will most likely be different!
+tar -zxvf ~/Downloads/jetbrains-toolbox-2.3.2.31487.tar.gz -C /opt/jetbrains/toolbox
+/opt/jetbrains/toolbox/jetbrains-toolbox-2.3.2.31487/jetbrains-toolbox
+```
+
+```shell
 sudo dnf -y install jetbrains-mono-fonts
 ```
 
@@ -214,4 +223,9 @@ sudo dnf -y install go python3
 
 ```shell
 sudo dnf -y install vlc
+```
+## Other
+
+```shell
+sudo dnf -y install kbackup
 ```
