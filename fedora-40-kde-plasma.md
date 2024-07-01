@@ -226,3 +226,11 @@ sudo dnf -y install vlc
 ```
 ## Other
 
+### NoMachine
+
+_Check for the latest version here: https://downloads.nomachine.com/download/._
+
+```shell
+wget https://download.nomachine.com/download/8.11/Linux/nomachine_8.11.3_4_x86_64.rpm -P /tmp
+sudo rpm -i /tmp/nomachine_8.11.3_4_x86_64.rpm
+```
