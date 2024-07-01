@@ -226,6 +226,3 @@ sudo dnf -y install vlc
 ```
 ## Other
 
-```shell
-sudo dnf -y install kbackup
-```
