@@ -1,6 +1,6 @@
 # Configuring Fedora 40 KDE Plasma 6
 
-A reminder for myself, about the **manual** installation steps I ran.
+These are the **manual** installation steps I ran.
 
 ## Core
 
