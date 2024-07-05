@@ -224,6 +224,24 @@ sudo dnf -y install go python3
 ```shell
 sudo dnf -y install vlc
 ```
+### Spotify (via Snap)
+
+https://snapcraft.io/install/spotify/fedora
+
+```shell
+sudo dnf -y install snapd
+```
+
+Logout / reboot? According to the docs: 
+> Either log out and back in again, or restart your system, to ensure snap’s paths are updated correctly. 
+```shell
+reboot
+```
+
+```shell
+sudo snap install spotify
+```
+
 ## Other
 
 ### NoMachine
