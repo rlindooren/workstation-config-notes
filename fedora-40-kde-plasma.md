@@ -13,6 +13,8 @@ sudo dnf -y update
 reboot
 ```
 
+### Software package sources
+
 ```shell
 sudo dnf -y install dnf-plugins-core
 ```
@@ -28,6 +30,12 @@ sudo dnf -y install curl wget bat jq
 
 ```shell
 #sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+
+```shell
+sudo dnf -y install snapd
+# According to the docs: "Either log out and back in again, or restart your system, to ensure snap’s paths are updated correctly."
+reboot
 ```
 
 ### SSH
@@ -224,19 +232,14 @@ sudo dnf -y install go python3
 ```shell
 sudo dnf -y install vlc
 ```
+
+```shell
+sudo dnf -y install arianna
+```
+
 ### Spotify (via Snap)
 
 https://snapcraft.io/install/spotify/fedora
-
-```shell
-sudo dnf -y install snapd
-```
-
-Logout / reboot? According to the docs: 
-> Either log out and back in again, or restart your system, to ensure snap’s paths are updated correctly. 
-```shell
-reboot
-```
 
 ```shell
 sudo snap install spotify
