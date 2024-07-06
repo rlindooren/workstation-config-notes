@@ -249,6 +249,10 @@ sudo snap install spotify
 
 ## Other
 
+```shell
+sudo dnf -y install langpacks-nl
+```
+
 ### NoMachine
 
 _Check for the latest version here: https://downloads.nomachine.com/download/._
