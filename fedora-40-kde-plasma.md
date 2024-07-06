@@ -233,8 +233,10 @@ sudo dnf -y install go python3
 sudo dnf -y install vlc
 ```
 
+### E-book
+
 ```shell
-sudo dnf -y install arianna
+sudo dnf -y install calibre arianna
 ```
 
 ### Spotify (via Snap)
