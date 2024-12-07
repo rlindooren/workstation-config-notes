@@ -233,6 +233,12 @@ sudo dnf -y install go python3
 sudo dnf -y install vlc
 ```
 
+To fix movies only showing a black screen:
+
+```shell
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+```
+
 ### E-book
 
 ```shell
