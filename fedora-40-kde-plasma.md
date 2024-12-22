@@ -1,4 +1,4 @@
-# Configuring Fedora 40 KDE Plasma 6
+# Configuring Fedora 40 (& 41) KDE Plasma 6
 
 These are the **manual** installation steps I ran.
 
@@ -19,9 +19,15 @@ reboot
 sudo dnf -y install dnf-plugins-core
 ```
 
+https://rpmfusion.org/Configuration#Command_Line_Setup_using_rpm
+
 ```shell
 sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-#sudo rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+# Using non-free for the Nvidia driver
+sudo rpm -Uvh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+#Fedora <= 40 --> sudo dnf config-manager --enable fedora-cisco-openh264
+#Fedora >= 41 --> sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 ```
 
 ```shell
@@ -36,6 +42,20 @@ sudo dnf -y install curl wget bat jq
 sudo dnf -y install snapd
 # According to the docs: "Either log out and back in again, or restart your system, to ensure snap’s paths are updated correctly."
 reboot
+```
+
+### Drivers
+
+#### Nivida
+
+https://rpmfusion.org/Howto/NVIDIA#Current_GeForce.2FQuadro.2FTesla
+
+```shell
+sudo dnf update -y
+sudo dnf install akmod-nvidia
+sudo dnf install xorg-x11-drv-nvidia-cuda #optional for cuda/nvdec/nvenc support
+
+modinfo -F version nvidia # should output the version of the driver sand not `modinfo: ERROR: Module nvidia not found`.
 ```
 
 ### SSH
