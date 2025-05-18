@@ -192,6 +192,37 @@ sudo systemctl enable containerd.service
 
 ## Development
 
+## GPG (PGP)
+
+```shell
+sudo dnf -y install gnupg2 pinentry-gnome3
+
+mkdir -p ~/.gnupg
+chmod 700 ~/.gnupg
+chmod 600 ~/.gnupg/*
+sudo chown -R $(whoami) ~/.gnupg
+gpgconf --kill gpg-agent
+mkdir -p ~/gpg-keys/public
+mkdir -p ~/gpg-keys/private
+```
+
+```shell
+gpg --import *****.asc
+```
+
+```shell
+git config --global user.signingkey *****
+git config --global commit.gpgsign true
+git config --global gpg.program gpg
+```
+
+```
+#gpg --full-generate-key
+#gpg --list-secret-keys --keyid-format=long
+#gpg --armor --export ***** > ~/gpg-keys/public/*****.asc
+#gpg --armor --export-secret-keys ***** > ~/gpg-keys/private/*****.asc
+```
+
 ### Sublime Text
 
 ```shell
