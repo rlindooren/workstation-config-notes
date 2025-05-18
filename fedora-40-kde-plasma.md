@@ -223,6 +223,16 @@ git config --global gpg.program gpg
 #gpg --armor --export-secret-keys ***** > ~/gpg-keys/private/*****.asc
 ```
 
+### Github CLI
+
+```shell
+# DNF5 installation commands -- https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+sudo dnf install dnf5-plugins
+sudo dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
+sudo dnf -y install gh --repo gh-cli
+gh auth login
+```
+
 ### Sublime Text
 
 ```shell
