@@ -288,6 +288,12 @@ sudo dnf -y install code
 sudo dnf -y install go python3
 ```
 
+### Other/misc.
+
+```shell
+sudo dnf -y install hugo
+```
+
 ## Music, multimedia, etc.
 
 ```shell
