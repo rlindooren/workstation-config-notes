@@ -290,8 +290,12 @@ sudo dnf -y install go python3
 
 ### Other/misc.
 
+#### Markdown to PDF
+
 ```shell
-sudo dnf -y install hugo
+sudo dnf -y install pandoc
+sudo dnf -y install texlive-scheme-full
+#sudo dnf -y install texlive-tex-gyre
 ```
 
 ## Music, multimedia, etc.
