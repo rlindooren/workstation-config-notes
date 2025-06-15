@@ -165,7 +165,6 @@ nmap -sn 192.168.1.0/24     # Ping scan local network (needs `nmap`)
 
 ## Common rescue tools (e.g. with SystemRescue)
 
-```
 | Tool           | Purpose                             |
 |----------------|-------------------------------------|
 | testdisk       | Recover lost partitions             |
@@ -185,7 +184,6 @@ nmap -sn 192.168.1.0/24     # Ping scan local network (needs `nmap`)
 | firefox        | Browser (upload logs or search)     |
 | baobab         | GNOME Disk Usage Analyzer (GUI)     |
 | bleachbit      | Cleanup utility (GUI)               |
-```
 
 ## NTFS/Windows recovery
 
