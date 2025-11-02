@@ -58,12 +58,19 @@ sudo dnf install xorg-x11-drv-nvidia-cuda #optional for cuda/nvdec/nvenc support
 modinfo -F version nvidia # should output the version of the driver sand not `modinfo: ERROR: Module nvidia not found`.
 ```
 
-#### Printer
+#### Printer & Scanner
+
+##### HP Envy 6200-serie
 
 _After installing via settings (IPP via DNS-SD)_
 
 ```shell
 sudo dnf -y install hplip hplip-gui
+```
+
+```shell
+sudo dnf install -y gscan2pdf tesseract tesseract-langpack-nld tesseract-langpack-eng
+sudo dnf install -y sane-airscan simple-scan ocrmypdf
 ```
 
 ### SSH
