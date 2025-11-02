@@ -1,4 +1,4 @@
-# Configuring Fedora 40 (& 41) KDE Plasma 6
+# Configuring Fedora 40 (& 41, 42, ...) KDE Plasma
 
 These are the **manual** installation steps I ran.
 
@@ -58,6 +58,14 @@ sudo dnf install xorg-x11-drv-nvidia-cuda #optional for cuda/nvdec/nvenc support
 modinfo -F version nvidia # should output the version of the driver sand not `modinfo: ERROR: Module nvidia not found`.
 ```
 
+#### Printer
+
+_After installing via settings (IPP via DNS-SD)_
+
+```shell
+sudo dnf -y install hplip hplip-gui
+```
+
 ### SSH
 
 _Note: I already had a key, but instructions for generating one can be found [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)._
@@ -99,6 +107,10 @@ git config --global --edit
 git config --global user.name "Ricardo Lindooren" 
 git config --global user.email "ricardo@..." 
 git config --global user.username "rlindooren"
+```
+
+```
+git config --global init.defaultBranch main
 ```
 
 Enable automatic upsteam:
@@ -310,6 +322,11 @@ To fix movies only showing a black screen:
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 ```
 
+### To shorten video clips
+```shell
+sudo dnf install avidemux
+```
+
 ### E-book
 
 ```shell
@@ -330,11 +347,6 @@ sudo snap install spotify
 sudo dnf -y install langpacks-nl
 ```
 
-### NoMachine
-
-_Check for the latest version here: https://downloads.nomachine.com/download/._
-
 ```shell
-wget https://download.nomachine.com/download/8.11/Linux/nomachine_8.11.3_4_x86_64.rpm -P /tmp
-sudo rpm -i /tmp/nomachine_8.11.3_4_x86_64.rpm
+sudo dnf install fzf 
 ```

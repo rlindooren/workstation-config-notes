@@ -1,4 +1,4 @@
-# Configuring macOS 14 Sonoma
+# Configuring MacOS (dev / work machine)
 
 These are the **manual** installation steps I ran.
 
